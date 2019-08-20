@@ -14,7 +14,7 @@ Usage: pysqlizer-cli.py [-h] -i infile [-o outfile] [-t tname] [-d dbname] [-s d
 
 optional arguments:
   -h, --help                            show this help message and exit
-  -i infile, --input infile             Input CSV filename
+  -i infile, --input infile             Input CSV filename (required)
   -o outfile, --output outfile          Output SQL filename
   -t tname, --table_name tname          SQL table name
   -d dbname, --db_name dbname           SQL database name
@@ -26,7 +26,7 @@ optional arguments:
 
 PySQLizer provides two main classes that can be called from any other Python script:
 
-* CSV Reader `CSVReader`: it reads the CSV file and parses its data and column headers.
+* CSV Reader `CSVReader`: it reads the CSV file and parses its data and column fields.
 * SQL Generator `SQLGenerator`: it generates the SQL table structure and data insertion instruction.
 
 The following snippet summarizes the required steps to properly read and parse the CSV file:
@@ -57,12 +57,21 @@ Once the CSV file is read and parsed, the SQL generator class is used as followi
 
 The main features of PySQLizer are the following:
 
-* Supports five types of data: integer, double, boolean, datetime and string.
+* Supports five data types: integer, double, boolean, datetime and string.
 * Supports whitespaces in columns' names.
 * Creates automatically the SQL table structure where the data is inserted.
 * Allows the selection of the database and the dropping of the SQL table if already exists.
 * Generates standard SQL instructions. 
 * Has no special dependencies.
+* Logs useful information and all errors.
+
+## Example
+
+In this example, we use PySQLizer in order to convert a CSV file containing the geocoordinates of some cities located in North America into a SQL source file:
+
+```
+python pysqlizer-cli.py -i data/cities.csv -t nacities -d geocoordinates
+```
 
 ## Installation
 
@@ -86,4 +95,4 @@ PySQLizer fails if the first row of the CSV file does not contain the names of c
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
