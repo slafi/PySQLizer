@@ -73,14 +73,6 @@ In this example, we use PySQLizer in order to convert a CSV file containing the 
 python pysqlizer-cli.py -i data/cities.csv -t nacities -d geocoordinates
 ```
 
-## Installation
-
-You can use the Python installation package (pip) to install PySQLizer from the common repository:
-
-```
-pip install pysqlizer
-```
-
 ## Dependencies
 
 Besides few standard Python libraries, no special dependencies are required to run PySQLizer. 
