@@ -29,7 +29,7 @@ def infer_type(item):
         return None
 
     # Spaces at the beginning and end of the string are removed
-    trimmed_item = item.strip()
+    trimmed_item = str(item).strip()
 
     ## Parse double
     #match = re.search(r'^[-+]?(?:(?:\d*\.\d+)|(?:\d+\.?))(?:[Ee][+-]?\d+)?$', trimmed_item)
